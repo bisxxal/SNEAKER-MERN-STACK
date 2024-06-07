@@ -30,7 +30,7 @@ export const register = async(req,res)=>{
         const user = userr.toObject();
         delete user.password;
 
-       return res.json({success:true,token, user});
+       return res.json({success:true,token});
 
 
     } catch (error) {
@@ -55,7 +55,7 @@ export const login =async(req,res)=>{
        const user = existUser.toObject();
        delete user.password;
 
-       return res.json({success:true,token , user});
+       return res.json({success:true,token });
     } catch (error) {
         console.log("error in login routes=>>>>> ",error);
         return res.json({success:false ,message:"login Error"})

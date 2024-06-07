@@ -20,6 +20,7 @@ app.use("/api/order",orderRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/shoes",shoesRouter)
 app.use ('/images' , express.static('upload'))
+app.post('/api/key',(req,res)=>res.json({key:process.env.KEY_ID}) )
 
 const port = process.env.PORT 
 app.listen(port , ()=>{

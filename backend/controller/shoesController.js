@@ -3,7 +3,7 @@ import fs from 'fs'
 export const addShoes = async(req,res)=>{
     try {
         let image_fileName = `${req.file.filename}`;
-        console.log(image_fileName);
+    
         const { name  , description,price ,category } =req.body
         
         const createShoes = new shoesModel({

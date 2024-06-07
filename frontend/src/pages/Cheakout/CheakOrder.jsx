@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../components/Context/StoreContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -37,27 +37,25 @@ const placeOrder = async(e)=>{
 
 
         try {
+            const keydata = await axios.post(`${url}/api/key`)
+            const key =  keydata.data.key
+            console.log(key);
           let response = await axios.post(`${url}/api/order/createorder`, orderData, {headers: { token } });
 
           if (response.data && response.data.order) {
               const { id: order_id, amount } = response.data.order;
               const orgOrder = response.data.newOrder._id
-              initiateRazorpayPayment(order_id, amount , orgOrder);
-              console.log(response.data.newOrder._id);
+              initiateRazorpayPayment(order_id, amount , orgOrder ,key);
           } else {
               console.error('Order creation failed:', response.data);
           }
       } catch (error) {
           console.error('Error placing order:', error);
-      }
-
- 
-        
-    }
-
-    const initiateRazorpayPayment = (order_id, amount ,orgOrder) => {
+      } 
+    } 
+    const initiateRazorpayPayment = (order_id, amount ,orgOrder ,key) => {
       const options = {
-          key: "rzp_test_vUiIG1Qsr3bVDh",
+          key:key,
           amount: amount,
           currency: "INR",
           name: "Bishal kandi",
@@ -93,7 +91,7 @@ const placeOrder = async(e)=>{
       };
       const rzp1 = new window.Razorpay(options);
       rzp1.on('payment.failed', function (response) {
-          console.log(response.error);
+          
           navigate(`/verify?success=false&orderId=${order_id}`);
       });
       rzp1.open();
@@ -106,22 +104,22 @@ const placeOrder = async(e)=>{
         <div className='place-order-left flex flex-col lg:justify-center items-center w-full lg:w-1/2'>
           <p className='text-[24px] font-bold mb-5'>Delivery Information</p>
           <div className='multi-filds w-full lg:justify-center items-center flex flex-col lg:flex-row mb-5 gap-5'>
-            <input  onChange={onChangeHander}   value={data.firstname} name='firstname' className='w-[80%] lg:w-1/3  bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='FistName' />
-            <input  onChange={onChangeHander}   value={data.lastname} name='lastname' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Last Name' />
+            <input required onChange={onChangeHander}   value={data.firstname} name='firstname' className='w-[80%] lg:w-1/3  bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='FistName' />
+            <input required onChange={onChangeHander}   value={data.lastname} name='lastname' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Last Name' />
           </div>
-          <input  onChange={onChangeHander} value={data.email} name='email' className='w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="email" placeholder='email adress' />
+          <input required onChange={onChangeHander} value={data.email} name='email' className='w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="email" placeholder='email adress' />
          <br />
-          <input  onChange={onChangeHander}  value={data.street} name='street' className='w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Street' />
+          <input required onChange={onChangeHander}  value={data.street} name='street' className='w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Street' />
 
           <div className='multi-filds lg:justify-center w-full items-center mt-4 flex flex-col lg:flex-row gap-5 mb-5'>
-            <input  onChange={onChangeHander}  value={data.city} name='city' className='w-[80%] lg:w-1/3 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='City' />
-            <input  onChange={onChangeHander}  value={data.state} name='state' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='State' />
+            <input required onChange={onChangeHander}  value={data.city} name='city' className='w-[80%] lg:w-1/3 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='City' />
+            <input required onChange={onChangeHander}  value={data.state} name='state' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='State' />
           </div>
           <div className='multi-filds w-full lg:justify-center items-center flex flex-col lg:flex-row gap-5 mb-5'>
-            <input  onChange={onChangeHander}  value={data.zipcode} name='zipcode' className='w-[80%] lg:w-1/3 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="number" placeholder='Zip code' />
-            <input  onChange={onChangeHander}  value={data.country} name='country' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Country' />
+            <input required onChange={onChangeHander}  value={data.zipcode} name='zipcode' className='w-[80%] lg:w-1/3 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="number" placeholder='Zip code' />
+            <input required onChange={onChangeHander}  value={data.country} name='country' className='w-[80%] lg:w-1/4 bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="text" placeholder='Country' />
           </div>
-          <input   onChange={onChangeHander}  value={data.phone} name='phone'className=' w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="number" placeholder='Phone' />
+          <input required  onChange={onChangeHander}  value={data.phone} name='phone'className=' w-[80%] lg:w-[60%] bg-transparent outline-none border border-[#ffffff53] rounded-lg px-3  py-2' type="number" placeholder='Phone' />
         </div>
 
 

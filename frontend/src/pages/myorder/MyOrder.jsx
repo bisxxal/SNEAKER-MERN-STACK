@@ -13,17 +13,17 @@ function MyOrder() {
     useEffect(()=>{
         if(token){
             fetchData()
-            // console.log(data);
+            
         } 
         
     })
   return (
     <div className='w-full min-h-screen pt-24 px-2 lg:px-24'>
         <h1 className='text-3xl font-semibold '>My Orders .</h1>
-        <div className=' w-full lg:w-[80%] mt-8 mx-auto'>
+        <div className=' w-full   lg:w-[80%] mt-8 mx-auto'>
         {
            data? data.map((order, index) => (
-                <div key={index} className="flex w-full bg-zinc-800 mt-3 gap-2 px-3 py-2 rounded-md">
+                <div key={index} className="flex w-full bg-zinc-800 mt-3 items-start gap-2 px-3 py-2 rounded-md">
 
  
                     <div className="w-1/4 flex flex-col items-center gap-2 justify-center">
@@ -33,8 +33,6 @@ function MyOrder() {
                 ))
             }
             </div>
-                 
-        
                   <div className="flex  lg:w-[30%] flex-col gap-1">
                     {order.items.map((item, idx) => (
                       <div key={idx} className="flex flex-col px-4 py-2 rounded-md bg-[#0000006e] gap-1">
@@ -48,8 +46,8 @@ function MyOrder() {
                     ))}
                   </div>
                   
-                 <div className=' flex flex-col lg:w-[40%] mx-auto '>
-                 <div className='flex flex-col lg:flex-row justify-between py-10 w-full '>
+                 <div className=' flex flex-col lg:w-[40%]  bg-red-20 mx-auto '>
+                 <div className='flex flex-col lg:flex-row justify-between pt-3 w-full '>
                     <div className='flex flex-col lg:flex-row gap-4 pl-1 lg:pl-0 lg:gap-10'>
                     <p className='text-green-500'> &#x2022; {order.status}</p>
                     <p className=' text- font-semibold'>Total: ₹ {order.amount}</p>

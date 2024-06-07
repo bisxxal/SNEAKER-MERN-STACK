@@ -23,9 +23,9 @@ export const placeOrder = async (req,res)=>{
       currency: "INR",
       receipt: newOrder._id.toString()  
   }; 
-  // console.log('Creating Razorpay order with options:', options);
+  
   const order = await instance.orders.create(options);
-        // console.log('Razorpay Order:', order);
+      
 
         res.json({ success: true ,order ,newOrder })
  

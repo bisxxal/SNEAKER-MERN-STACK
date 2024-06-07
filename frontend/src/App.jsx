@@ -1,5 +1,6 @@
 import { useState } from 'react' 
 import './App.css'
+import LocomotiveScroll from 'locomotive-scroll';
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Cart from './pages/Cart/Cart'
@@ -12,10 +13,14 @@ import MyOrder from './pages/myorder/MyOrder'
 import Fotter from './components/fotter/Fotter' 
 import About from './pages/about/About'
 
+
 function App() {
+  
+const locomotiveScroll = new LocomotiveScroll();
    return (
     <>
     <div className='bg-zinc-900 w-full min-h-screen text-white'>
+   
 <Navbar/>
     <Routes>
       <Route path='/' element={ <Home/>} />
