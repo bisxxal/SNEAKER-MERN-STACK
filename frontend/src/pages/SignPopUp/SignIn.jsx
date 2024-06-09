@@ -43,11 +43,11 @@ function SignIn() {
     }
 
   return (
-    <div className='text-white  absolute z-[11] w-full h-full bg-[#0000007f] flex-col flex items-center justify-center  '>
+    <div className='text-white  absolute z-[11] w-full h-full bg-[#2c60ff] flex-col flex items-center justify-center  '>
         <form onSubmit={onLogin} className=' backdrop-blur-[3px] bg-[#0000007f] w-[400px] rounded-lg gap-4 py-6 px-3 flex-col flex items-center justify-center '>
             <div className='w-full flex  justify-center relative'>
                 <h2 className='text-bold text-3xl'>{currState}</h2>
-                    <RxCross1 onClick={()=> navigate('/')} className=' absolute right-6 text-white text-[30px]' />
+                    <RxCross1 onClick={()=> navigate('/')} className=' cursor-pointer absolute right-6 text-white text-[30px]' />
             </div>
             <div className='inputs flex flex-col gap-3'>
                 {currState === 'Login' ? <></> : <input onChange={onChangeHandeler} name='name' value={data.name} className='px-2 rounded py-1 outline-none bg-transparent border border-[#ffffff65]' type="text" placeholder='Username'/>}
