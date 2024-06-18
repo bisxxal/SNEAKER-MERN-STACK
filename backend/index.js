@@ -24,7 +24,7 @@ app.use ('/images' , express.static('upload'))
 app.post('/api/key',(req,res)=>res.json({key:process.env.KEY_ID}) )
 
  
-const port = process.env.PORT 
+const port =8000
 app.listen(port , ()=>{
     console.log(`server runnning on ${port}`);
 })
