@@ -5,7 +5,7 @@ import AddShoes from '../AddShoes/AddShoes'
 import { useState } from 'react'
 function Home() {
     const [show ,setShow ] = useState('order')
-      const url  = 'http://localhost:8000'
+      const url  = 'https://snkerbackend.onrender.com'
   return (
     <div className='w-full min-h-screen bg-zinc-900 pt-16 lg:px-14 px-2 text-white'>
         <div className='flex justify-evenly bg-zinc-700 rounded-lg mt-4 h-[50px] items-center'>
