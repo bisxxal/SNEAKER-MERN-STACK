@@ -1,18 +1,21 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import crypto from 'crypto'  
 import Razorpay from 'razorpay'
-import crypto from 'crypto' 
-const instance = new Razorpay({
-  key_id: 'rzp_test_vUiIG1Qsr3bVDh',
-  key_secret: 'tnRNzTtbcnR6sKbG4JzVOlRA',
-});
 
+
+ 
 export const placeOrder = async (req,res)=>{
     try {
+
+      const instance = new Razorpay({
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRECT,
+  });
        const url = 'http://localhost:5173'
        const { userId , items ,amount,address} = req.body;
        const newOrder = new orderModel({
-         userId , items ,amount,address
+         userId , items ,amount,address  
         })
         await newOrder.save();
          
@@ -38,7 +41,7 @@ export const verifyPayment = async (req, res) => {
      
       const { order_id, payment_id, razorpay_signature,orgOrder } = req.body;
 
-      const generated_signature = crypto.createHmac('sha256', 'tnRNzTtbcnR6sKbG4JzVOlRA')
+      const generated_signature = crypto.createHmac('sha256', process.env.KEY_SECRECT)
           .update(`${order_id}|${payment_id}`)
           .digest('hex');
            
