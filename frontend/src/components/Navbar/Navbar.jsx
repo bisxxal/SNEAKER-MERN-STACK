@@ -24,7 +24,7 @@ function Navbar() {
  }
   return (
    <>
-      { show ? <div className='fixed z-[11] w-full px-6 lg:px-20 h-[30px] text-black flex items-center justify-between font-medium bg-[#ffffffa4] '>
+      { show ? <div className='fixed z-[11] w-full px-6 lg:px-20 h-[30px] flex items-center justify-between font-medium bg-[#1d7bffaf] '>
           <h1 className=' text-lg mx-auto'>Get 20% off On Your First Order</h1>
           <h1 onClick={()=> setShow(false)} className=' cursor-pointer text-2xl'>x</h1>
       </div> :''}

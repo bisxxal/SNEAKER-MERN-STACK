@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"; 
 import { RxCrossCircled } from "react-icons/rx";
 import axios from "axios";
-function ListShoes({ show }) {
+function ListShoes({ show,url }) {
 
-  const url = 'http://localhost:8000';
+   
   const [list, setList] = useState([]);
   const [add , setAdd] = useState('')
 

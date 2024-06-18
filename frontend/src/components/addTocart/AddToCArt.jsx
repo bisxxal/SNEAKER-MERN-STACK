@@ -9,7 +9,7 @@ function AddToCArt({item , setShow , show}) {
     const {url ,cartItems ,list , setList , addToCart , removeFromCart} = useContext(StoreContext)
   return (
     
-     <div className=' w-[90%] absolute left-[20px] lg:left-[70px] top-[50px] rounded-3xl  mx-auto h-[26vh] lg:h-[50vh] flex backdrop-blur-md bg-[#00000059] overflow-hidden '>
+     <div className=' w-[90%] fixed top-52 left-20 z-30   rounded-3xl  mx-auto h-[26vh] lg:h-[50vh] flex backdrop-blur-[50px] bg-[#00000059] overflow-hidden '>
      
 
      <div className=' w-1/4'>
@@ -27,7 +27,7 @@ function AddToCArt({item , setShow , show}) {
       {
          !cartItems[item._id] ?  <IoIosAddCircleOutline  onClick={()=> addToCart(item._id)} className=' text-[34px] lg:text-[40px] text-green-300' />
          :
-         <div className='flex items-center justify-between gap-2 border-green-600 border bg-[#29ff291f] rounded-full px-1 lg:px-2 '>
+         <div className='flex items-center justify-between gap-2 border-green-600 border bg-[#] rounded-xl px-1 lg:px-2 '>
            <IoIosRemoveCircleOutline onClick={()=>removeFromCart(item._id)} className='  text-[34px] lg:text-[40px] text-[red]'/>
            <p className=' font-semibold text-xl'>{cartItems[item._id]}</p>
            <IoIosAddCircleOutline  onClick={()=> addToCart(item._id)} className=' text-[34px] lg:text-[40px]  text-green-300' />

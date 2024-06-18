@@ -43,8 +43,8 @@ function SignIn() {
     }
 
   return (
-    <div className='text-white  absolute z-[11] w-full h-full bg-[#2c60ff] flex-col flex items-center justify-center  '>
-        <form onSubmit={onLogin} className=' backdrop-blur-[3px] bg-[#0000007f] w-[400px] rounded-lg gap-4 py-6 px-3 flex-col flex items-center justify-center '>
+    <div className='text-white top-0  bg-contain bg-center  bg-no-repeat bg-[url(https://clipart-library.com/2023/nike-sneaker-clipart-xl.png)]  absolute z-[11] w-full min-h-screen bg-[black] flex-col flex items-center justify-center  '>
+        <form onSubmit={onLogin} className=' backdrop-blur-[20px] bg-[#0000007f] w-[350px] rounded-lg gap-4 py-6 px-3 flex-col flex items-center justify-center '>
             <div className='w-full flex  justify-center relative'>
                 <h2 className='text-bold text-3xl'>{currState}</h2>
                     <RxCross1 onClick={()=> navigate('/')} className=' cursor-pointer absolute right-6 text-white text-[30px]' />
@@ -55,7 +55,7 @@ function SignIn() {
                 <input onChange={onChangeHandeler} name='email' value={data.email} className='px-2 rounded py-1 outline-none bg-transparent border border-[#ffffff65]' type="email" placeholder='email'/>
                 <input onChange={onChangeHandeler} name='password' value={data.password} className='px-2 rounded py-1 outline-none bg-transparent border border-[#ffffff65]' type="password" placeholder='password'/>
             </div>
-            <button type='sumbit' className=' bg-[#ff6347cb]   font-bold px-7 py-2 rounded-full '>{currState === 'Sign UP'?'Create account' :'Login' }</button>
+            <button type='sumbit' className=' bg-blue-500   font-bold px-7 py-2 rounded-full '>{currState === 'Sign UP'?'Create account' :'Login' }</button>
             
              {currState === "Login"
 

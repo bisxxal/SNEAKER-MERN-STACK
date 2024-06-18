@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import { MdOutlineFileUpload } from "react-icons/md";
-function AddShoes({show}) {
+function AddShoes({show , url}) {
 
-  const url  = 'http://localhost:8000'
+  
   const [image , setImage] = useState(false)
   const [add , setAdd] = useState('')
   

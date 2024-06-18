@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
 import { useEffect } from 'react';
-function Order({show}) {
+function Order({show ,url}) {
   const [data, setData] = useState([]);
-  const url = 'http://localhost:8000';
+ 
   const fetchData = async () => {
     const responce = await axios.post(url + "/api/order/list");
 

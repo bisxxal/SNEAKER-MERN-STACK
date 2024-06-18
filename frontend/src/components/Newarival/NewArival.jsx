@@ -11,7 +11,7 @@ function NewArival() {
     
     const [show , setShow] = useState(false)
   return (
-    <div className='w-full min-h-[70vh] relative mt-10  lg:px-0 '>
+    <div className='w-full min-h-[70vh]   mt-10  lg:px-0 '>
         <h1 className='text-[30px] font-bold'> New Arrivals</h1>
         <div className='flex lg:gap-10 flex-wrap justify-evenly lg:justify-center'>
         {
