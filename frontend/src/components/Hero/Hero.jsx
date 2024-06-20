@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { motion } from "framer-motion"
-import 'swiper/swiper-bundle.min.css';
+import { motion } from "framer-motion" 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation'; 
