@@ -1,12 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    nodeResolve({
+      browser: true,
+      preferBuiltins: false,
+    }),
+    commonjs(),
+  ],
+  optimizeDeps: {
+    include: ['swiper/react'],
+  },
   resolve: {
     alias: {
-      'swiper/react': 'swiper/react/swiper-react.esm.js'
-    }
-  }
-})
+      'swiper/react': 'swiper/react/swiper-react.esm.js',
+    },
+  },
+});
+
