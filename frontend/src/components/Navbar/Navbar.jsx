@@ -12,9 +12,11 @@ function Navbar() {
   const goto = ()=>{
    if(!token){
       navigate('/login')
+      setClick(!click)
    }
    else{
       navigate('/cart')
+      setClick(!click)
    }
   }
   const logout = ()=>{
@@ -62,22 +64,24 @@ function Navbar() {
              : <Link to={'/login'}>Login </Link> 
          }
               
-              <div onClick={()=> setClick(!click)} className={`text-[40px] lg:hidden `}> {click ?  "x" :'='}  </div>
+              <div onClick={()=> setClick(!click)} className={`text-[40px] cursor-pointer lg:hidden `}> {click ?  "x" :'='}  </div>
 
          </div>
     </div>
 
 
-    <div className={`${click ? ' block ' : ' hidden '} w-full pt-20 h-screen bg-[#00000069] `}>
+    <div className={`${click ? ' z-40 fixed top-0 left-0  ' : ' hidden '}   w-full pt-20 h-screen bg-[royalblue] `}>
+    
+    <div onClick={()=> setClick(!click)} className={`text-[40px] cursor-pointer flex justify-end px-10 w-full lg:hidden `}> x </div>
     <div className='flex flex-col text-lg p-10 gap-12'>
     <div className='flex flex-col gap-4 '>
-            <Link to={'/'}>HOME</Link>
-            <Link to={'/'}>ABOUT</Link>
-            <Link to={'/category'}>CATEGORY</Link>
+            <h1 className=" cursor-pointer" onClick={()=> {navigate('/'); setClick(!click) }}>HOME</h1>
+            <h1 className=" cursor-pointer" onClick={()=> {navigate('/about'); setClick(!click) }}>ABOUT</h1>
+            <h1 className=" cursor-pointer" onClick={()=> {navigate('/category'); setClick(!click) }}>CATEGORY</h1>
          </div>
       </div>
       <div className=' flex justify-center'>
-      <div className="flex relative items-center gap-5 bg-[#ffffff8d] px-6 py-2 rounded-3xl"  onClick={goto} >
+      <div className="flex relative items-center gap-5 bg-[#00a6ffdf] px-6 py-2 rounded-3xl shadow-lg shadow-[#00000087] "  onClick={goto} >
          Go To cart
             <IoCartOutline  className=" text-3xl"/>
            

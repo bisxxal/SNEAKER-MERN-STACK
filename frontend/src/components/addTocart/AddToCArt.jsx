@@ -9,7 +9,7 @@ function AddToCArt({item , setShow , show}) {
     const {url ,cartItems ,list , setList , addToCart , removeFromCart} = useContext(StoreContext)
   return (
     
-     <div className=' w-[90%] fixed top-52 left-20 z-30   rounded-3xl  mx-auto h-[26vh] lg:h-[50vh] flex backdrop-blur-[50px] bg-[#00000059] overflow-hidden '>
+     <div className=' w-[90%] fixed top-52 left-5 lg:left-20 z-30   rounded-3xl  mx-auto h-[26vh] lg:h-[50vh] flex backdrop-blur-[50px] bg-[#00000059] overflow-hidden '>
      
 
      <div className=' w-1/4'>

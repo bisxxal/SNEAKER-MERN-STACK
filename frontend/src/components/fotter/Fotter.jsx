@@ -2,10 +2,11 @@ import React from 'react'
 
 function Fotter() {
   return (
-    <div className=' gradient w-full h-[70vh] lg:min-h-screen mt-8 text-blac rounded-t-[50px] lg:rounded-t-[100px] bg-[#ba79ffb5 px-5 lg:px-28 flex lg:flex-row flex-col gap-16 lg:gap-0  lg:justify-between items-center'>
+    <div className=' gradient w-full h-[70vh] lg:min-h-screen mt-8 text-blac rounded-t-[50px] lg:rounded-t-[100px] flex flex-col justify-center  px-5 lg:px-28  '>
 
+    <div className='flex  lg:flex-row flex-col gap-16 lg:gap-0  lg:justify-between items-center '>
     <div className='w-full  lg:w-1/2 flex flex-col'>
-        <h1 className=' snker tracking-widest lg:tracking-wider text-[100px] text-center lg:text-start font-bold'>SNKER</h1>
+        <h1 className=' snker tracking-widest  lg:tracking-wider text-[100px] text-center lg:text-start'>SNKER</h1>
 
         <p className='lg:block hidden text-sm w-[75%] mt-6 mb-52'>
         Discover the latest trends and timeless styles in our extensive collection of shoes, <br /> perfect for every occasion. Shop now for unbeatable comfort and quality, crafted to elevate your look.
@@ -34,7 +35,9 @@ function Fotter() {
        <h2>  India. 560102</h2>
         </div>
     </div>
-    
+
+    </div>
+    <div className=' h-16 lg:h-32 text-center flex font-semibold items-end justify-center '>Created by Bishal with ❤️</div>
 </div>
   )
 }

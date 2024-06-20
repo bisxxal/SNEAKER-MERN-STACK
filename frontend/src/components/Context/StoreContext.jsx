@@ -7,7 +7,7 @@ const StoreContextProvider = (props)=>{
   const [token , setToken] = useState('')
   const [list, setList] = useState([]); 
     const [cartItems, setItems] = useState({});
-    const url = `http://localhost:8000`
+    const url = `https://snkerbackend.onrender.com`
 
     
   const [dis , setDis] = useState()
