@@ -12,7 +12,7 @@ export const placeOrder = async (req,res)=>{
     key_id: process.env.KEY_ID,
     key_secret: process.env.KEY_SECRECT,
   });
-       const url = 'https://sneaker-bsya.onrender.com'
+       const url = 'https://snkker.netlify.app'
        const { userId , items ,amount,address} = req.body;
        const newOrder = new orderModel({
          userId , items ,amount,address  
