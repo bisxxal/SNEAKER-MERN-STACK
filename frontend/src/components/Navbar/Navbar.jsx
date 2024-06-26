@@ -70,7 +70,7 @@ function Navbar() {
     </div>
 
 
-    <div className={`${click ? ' z-40 fixed top-0 left-0  ' : ' hidden '}   w-full pt-20 h-screen bg-[royalblue] `}>
+    <div className={`${click ? ' z-40 max-md:fixed hidden top-0 left-0  ' : ' hidden '}   w-full pt-20 h-screen bg-[royalblue] `}>
     
     <div onClick={()=> setClick(!click)} className={`text-[40px] cursor-pointer flex justify-end px-10 w-full lg:hidden `}> x </div>
     <div className='flex flex-col text-lg p-10 gap-12'>
