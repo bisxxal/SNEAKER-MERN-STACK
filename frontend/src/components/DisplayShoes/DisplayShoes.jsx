@@ -39,7 +39,7 @@ function DisplayShoes({categorie , setCatrgorie}) {
                 </div>
               } */}
         <IoIosAddCircleOutline  onClick={()=>{setShowItemDetails(item) 
-          setShow(!show)}} className='text-[30px] hover:text-green-500' />
+          setShow(!show)}} className='text-[30px]' />
         {
           show ? <AddToCArt item={showItemDetails}   setShow={setShow} show={show} /> :''
         }
