@@ -2,7 +2,7 @@ import React from 'react'
 
 function Fotter() {
   return (
-    <div className=' gradient w-full h-[70vh] lg:min-h-screen mt-8 text-blac rounded-t-[50px] lg:rounded-t-[100px] flex flex-col justify-center  px-5 lg:px-28  '>
+    <div className=' gradient w-full max-lg:pb-10 min-h-[70vh] lg:min-h-screen mt-8 text-blac rounded-t-[50px] lg:rounded-t-[100px] flex flex-col justify-center  px-5 lg:px-28  '>
 
     <div className='flex  lg:flex-row flex-col gap-16 lg:gap-0  lg:justify-between items-center '>
     <div className='w-full  lg:w-1/2 flex flex-col'>
