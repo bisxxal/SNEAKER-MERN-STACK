@@ -10,12 +10,13 @@ function NewArival() {
 
     
     const [show , setShow] = useState(false)
+     
   return (
     <div className='w-full min-h-[70vh]   mt-10  lg:px-0 '>
         <h1 className='text-[30px] font-bold'> New Arrivals</h1>
         <div className='flex lg:gap-10 flex-wrap justify-evenly lg:justify-center'>
         {
-            list ? list.slice(0,5).map((item,index)=>{
+            list&&list ? list.slice(0,5).map((item,index)=>{
                 return(
             <div key={index} className='containter bg-zinc-800 w-[190px] lg:w-[250px] lg:h-[310px] overflow-hidden rounded-xl mt-4 '>
             <div className='bg-[white]'>
@@ -24,7 +25,7 @@ function NewArival() {
             <div className='flex justify-end px-3 mt-2'>
               
         <IoIosAddCircleOutline  onClick={()=>{setShowItemDetails(item) 
-          setShow(!show)}} className='text-[30px] hover:text-green-500' />
+          setShow(!show)}} className='text-[30px] ' />
         {
           show ? <AddToCArt item={showItemDetails}   setShow={setShow} show={show} /> :''
         }
@@ -38,7 +39,7 @@ function NewArival() {
             </div>
         </div>
                 )
-      }) :''
+      }) : <> </>
         }
            
         </div>
