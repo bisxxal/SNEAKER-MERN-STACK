@@ -57,7 +57,7 @@ function Navbar() {
                <img className="lg:w-10 w-8 h-8 lg:h-10  rounded-full" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIs1XePP0G1O0AQB8x6uxPkXyY_PvXlYWGLTJWZfpios_3gsrcqX_jZz1dkxjgCZjrC-w&usqp=CAU' alt="" />
                <div className="  h-32 hidden group-hover:flex gap-4 flex-col px-5 items-center justify-center rounded-md top-[35px] w-40 left-[-60px] bg-[#00000085] backdrop-blur-lg  absolute">
                   <Link to={'/myorder'} className="w-full backdrop-blur-lg bg-[#28ff281e] text-center border border-green-600 py-2 rounded-lg">My Order</Link>
-                  <button onClick={logout} className="w-full border bg-[#ff00001b] border-red-600 backdrop-blur-lg py-2 rounded-lg">Logout</button>
+                  <button onClick={()=>logout()} className="w-full border bg-[#ff00001b] border-red-600 backdrop-blur-lg py-2 rounded-lg">Logout</button>
                </div>
              </div>
              
@@ -70,7 +70,7 @@ function Navbar() {
     </div>
 
 
-    <div className={`${click ? ' z-40 max-md:fixed hidden top-0 left-0  ' : ' hidden '}   w-full pt-20 h-screen bg-[royalblue] `}>
+    <div className={`${click ? ' max-md:z-40 max-md:fixed lg:hidden top-0 right-0   ' : ' hidden '}   w-[70%] pt-20 h-[60%] bg-[#000000f0] `}>
     
     <div onClick={()=> setClick(!click)} className={`text-[40px] cursor-pointer flex justify-end px-10 w-full lg:hidden `}> x </div>
     <div className='flex flex-col text-lg p-10 gap-12'>
