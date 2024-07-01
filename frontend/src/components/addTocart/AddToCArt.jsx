@@ -16,10 +16,10 @@ function AddToCArt({item , setShow , show}) {
              <img className='w-full h-full object-contain bg-white' src={`${url}/images/${item.image}`} alt="" />
      </div>
 
-     <div className=' w-[75%] px-10 flex py-10 justify-between '>
+     <div className=' w-[75%] max-lg:px-5 max-lg:py-5  lg:px-10 flex lg:py-10 justify-between '>
          <div>
-             <h1 className=' lg:text-[30px]  text-[20px] font-semibold' > {item.description} </h1>
-             <h1 className='text-2xl text-gray-500 '>{item.name}</h1>
+             <h1 className=' text-[20px] max-lg:text-[10px] font-semibold' > {item.description} </h1>
+             <h1 className=' max-md:text-sm text-2xl text-gray-500  '>{item.name}</h1>
              <p>Price : ₹ {item.price}</p>
 
 
